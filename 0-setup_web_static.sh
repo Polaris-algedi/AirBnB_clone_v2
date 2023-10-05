@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Bash script that sets up your web servers for the deployment of web_static
+
 # Install Nginx if it not already installed
 sudo apt-get update > /dev/null
 sudo apt-get -y install nginx > /dev/null
@@ -24,7 +25,8 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
 
 # Update the Nginx configuration to serve the content of /data/web_static/current/ to hbnb_static
-sudo sed -i "24i \\\tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/nginx.conf
+sudo sed -i "54i \\\tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-available/default
+#sudo sed -i "24i \\\tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/nginx.conf
 
 # Restart Nginx
 sudo service nginx restart
