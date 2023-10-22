@@ -31,7 +31,7 @@ class DBStorage:
 
     def __init__(self):
         """
-        Initializes DBStorage instance, creates the engine and connects to
+        Initialize DBStorage instance, creates the engine and connects to
         the database.
         """
         user = getenv("HBNB_MYSQL_USER")
@@ -48,13 +48,13 @@ class DBStorage:
 
     def all(self, cls=None):
         """
-        Returns a dictionary of all objects of a given class, if specified,
+        Return a dictionary of all objects of a given class, if specified,
         or all objects in the database if no class is specified.
 
         Args:
             cls (str, optional): The class of the objects to return.
 
-        Returns:
+        Return:
             dict: A dictionary of all objects, with the key as the class name
             and id of the object, and the value as the object itself.
         """
@@ -75,7 +75,7 @@ class DBStorage:
 
     def new(self, obj):
         """
-        Adds an object to the current database session.
+        Add an object to the current database session.
 
         Args:
             obj (BaseModel): The object to add.
@@ -84,13 +84,13 @@ class DBStorage:
 
     def save(self):
         """
-        Commits all changes of the current database session to the database.
+        Commit all changes of the current database session to the database.
         """
         self.__session.commit()
 
     def delete(self, obj=None):
         """
-        Deletes an object from the current database session.
+        Delete an object from the current database session.
 
         Args:
             obj (BaseModel, optional): The object to delete.
@@ -100,7 +100,7 @@ class DBStorage:
 
     def reload(self):
         """
-        Creates the current database session from the engine using a
+        Create the current database session from the engine using a
         sessionmaker.
         """
         self.__session = Base.metadata.create_all(self.__engine)
@@ -110,6 +110,6 @@ class DBStorage:
 
     def close(self):
         """
-        Closes the current database session.
+        Close the current database session.
         """
         self.__session.close()
