@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<META charset="utf-8">
+		<title>AirBnB clone</title>
+		<link rel="shortcut icon" href="images/icon.png" >
+		<link rel="stylesheet" href="styles/4-common.css"/>
+		<link rel="stylesheet" href="styles/3-header.css"/>
+		<link rel="stylesheet" href="styles/3-footer.css"/>
+		<link rel="stylesheet" href="styles/6-filters.css"/>
+	</head>
+    <body>
+		<header>
+			<div id="header_logo"></div>
+		</header>
+		<div class="container">
+			<section class="filters">
+				<button>Search</button>
+				<div class="locations">
+					<h3>States</h3>
+					<H4>&nbsp;</H4>
+          				<DIV class="popover">
+            					<UL>
+            					{% for state in states|sort(attribute="name") %}
+              						<LI><STRONG>{{ state.name }}</STRONG>
+                						<UL>
+                						{% for city in state.cities|sort(attribute="name") %}
+                  							<LI>{{ city.name }}</LI>
+                						{% endfor %}
+                						</UL>
+              						</LI>
+            						{% endfor %}
+            					</UL>
+				</div>
+				<div class="amenities">
+					<H3>Amenities</H3>
+          				<H4>&nbsp;</H4>
+          				<UL class="popover">
+          				{% for amenity in amenities|sort(attribute="name") %}
+            					<LI>{{ amenity.name }}</LI>
+          				{% endfor %}
+          				</UL>
+				</div>
+
+			</section>
+		</div>
+		<footer>
+			<p>Holberton School</p>
+		</footer>
+	</body>
+</html>

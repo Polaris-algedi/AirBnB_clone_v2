@@ -8,7 +8,7 @@ from models.amenity import Amenity
 app = Flask(__name__)
 
 
-@app.route("/hbnb_filters", strict_slashes=False)
+@app.route("/hbnb_filters/", strict_slashes=False)
 def hbnb_filters():
     """Route to display a HTML page with a list of all states
     """
